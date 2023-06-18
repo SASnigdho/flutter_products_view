@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
 
 import '../routes/route_names.dart';
+import 'base_controller.dart';
 
-class SplashController extends GetxController {
+class SplashController extends BaseController {
   @override
   Future<void> onInit() async {
     super.onInit();

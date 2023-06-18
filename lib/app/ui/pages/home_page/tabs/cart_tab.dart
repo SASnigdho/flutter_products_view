@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CartTab extends StatelessWidget {
+import '../../../../controllers/cart_controller.dart';
+
+class CartTab extends GetView<CartController> {
   const CartTab({super.key});
 
   @override

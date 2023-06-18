@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_products_view/app/controllers/product_controller.dart';
+import 'package:get/get.dart';
 
-class ProductsTab extends StatelessWidget {
+class ProductsTab extends GetView<ProductController> {
   const ProductsTab({super.key});
 
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_products_view/app/data/models/product/product.dart';
+import 'package:flutter_products_view/app/routes/route_names.dart';
 import 'package:get/get.dart';
 
 import '../../../../const/app_colors.dart';
@@ -14,7 +15,9 @@ class ProductListItem extends StatelessWidget {
     return Card(
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
-        onTap: () {},
+        onTap: () async {
+          await Get.toNamed(RouteNames.productShow);
+        },
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(

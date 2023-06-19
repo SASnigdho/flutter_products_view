@@ -24,7 +24,11 @@ class ProductListItem extends StatelessWidget {
                 width: 80,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: AppColors.primary,
+                  color: AppColors.lightBg,
+                  image: DecorationImage(
+                    fit: BoxFit.contain,
+                    image: NetworkImage('${product.image}'),
+                  ),
                 ),
                 margin: const EdgeInsets.only(right: 16),
               ),

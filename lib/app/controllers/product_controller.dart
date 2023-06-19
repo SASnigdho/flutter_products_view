@@ -1,9 +1,17 @@
 import 'dart:developer';
 
-import '../data/provider/product_repository.dart';
+import 'package:get/get.dart';
+
+import '../data/provider/interfaces/i_product_repository.dart';
 import 'base_controller.dart';
 
 class ProductController extends BaseController {
+  ProductController(this.repository);
+
+  final IProductRepository repository;
+  final isLoading = false.obs;
+  final products = [].obs;
+
   @override
   Future<void> onReady() async {
     await fetchProducts();
@@ -11,13 +19,19 @@ class ProductController extends BaseController {
   }
 
   Future<void> fetchProducts() async {
-    try {
-      final repo = ProductRepository();
-      final res = await repo.allProducts();
+    isLoading.value = true;
 
-      log('$res');
+    try {
+      final res = await repository.allProducts();
+
+      if (res.isNotEmpty) {
+        products.addAll(res);
+      }
+
+      isLoading.value = false;
     } catch (e) {
       log('HomeController:: fetchProducts@ $e');
+      isLoading.value = false;
     }
   }
 }

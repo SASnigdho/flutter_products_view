@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_products_view/app/data/models/product/product.dart';
 import 'package:get/get.dart';
 
 import '../../../../const/app_colors.dart';
 
 class ProductListItem extends StatelessWidget {
-  const ProductListItem({super.key});
+  const ProductListItem(this.product, {super.key});
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +33,11 @@ class ProductListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Product Name Product Name Product Name Product Name',
+                      '${product.title}',
                       style: Get.textTheme.titleLarge,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    Text('Product Name', style: Get.textTheme.labelSmall),
+                    Text('${product.price}', style: Get.textTheme.labelSmall),
                   ],
                 ),
               ),

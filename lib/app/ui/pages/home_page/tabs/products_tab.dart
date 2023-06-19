@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_products_view/app/const/app_colors.dart';
 import 'package:flutter_products_view/app/controllers/product_controller.dart';
 import 'package:get/get.dart';
 
@@ -9,13 +10,20 @@ class ProductsTab extends GetView<ProductController> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      itemBuilder: (context, index) {
-        return const ProductListItem();
-      },
-      separatorBuilder: (context, index) => const SizedBox(),
-      itemCount: 100,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+    return Obx(
+      () => controller.isLoading.value
+          ? const Center(
+              child: CircularProgressIndicator(color: AppColors.primary),
+            )
+          : ListView.separated(
+              itemBuilder: (context, i) {
+                final product = controller.products[i];
+                return ProductListItem(product);
+              },
+              separatorBuilder: (context, i) => const SizedBox(),
+              itemCount: controller.products.length,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+            ),
     );
   }
 }

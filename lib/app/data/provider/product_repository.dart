@@ -19,7 +19,6 @@ class ProductRepository extends Repository implements IProductRepository {
         products.add(product);
       }
 
-      log('ProductRepository:: allProducts@ ${products.length}');
       return products;
     } catch (e) {
       log('ProductRepository:: allProducts@ $e');

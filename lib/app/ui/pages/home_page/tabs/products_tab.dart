@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_products_view/app/const/app_colors.dart';
 import 'package:flutter_products_view/app/controllers/product_controller.dart';
 import 'package:get/get.dart';
 

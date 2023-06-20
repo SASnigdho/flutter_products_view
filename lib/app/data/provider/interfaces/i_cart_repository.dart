@@ -1,4 +1,4 @@
-import '../models/cart/cart.dart';
+import '../../models/cart/cart.dart';
 
 abstract class ICartRepository {
   Future<List<Cart>> getCarts();

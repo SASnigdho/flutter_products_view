@@ -39,6 +39,7 @@ class CartTab extends GetView<CartController> {
 
                             controller.calculateSubTotal();
                             controller.cartItems.refresh();
+                            controller.addToCart(controller.cartItems[i]);
                           },
                           onIncrease: () {
                             int quantity = cart.quantity ?? 1;
@@ -50,6 +51,7 @@ class CartTab extends GetView<CartController> {
                             }
                             controller.calculateSubTotal();
                             controller.cartItems.refresh();
+                            controller.addToCart(controller.cartItems[i]);
                           },
                         );
                       },

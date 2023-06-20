@@ -1,11 +1,16 @@
 import 'dart:developer';
 
 import 'package:flutter_products_view/app/data/models/cart/cart.dart';
+import 'package:flutter_products_view/app/data/provider/interfaces/i_cart_repository.dart';
 import 'package:get/get.dart';
 
 import 'base_controller.dart';
 
 class CartController extends BaseController {
+  CartController(this.repository);
+
+  final ICartRepository repository;
+
   final isLoading = false.obs;
   final cartItems = <Cart>[].obs;
   final subTotal = 0.obs;
@@ -21,73 +26,24 @@ class CartController extends BaseController {
     isLoading.value = true;
 
     try {
-      await Future.delayed(const Duration(seconds: 2));
+      final res = await repository.getCarts();
 
-      cartItems.addAll(
-        [
-          Cart(
-            name: 'Melvin Stanley',
-            category: 'Bangladesh',
-            image:
-                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-            price: 10,
-            quantity: 1,
-          ),
-          Cart(
-            name: 'Melvin Stanley',
-            category: 'Bangladesh',
-            image:
-                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-            price: 10,
-            quantity: 1,
-          ),
-          Cart(
-            name: 'Melvin Stanley',
-            category: 'Bangladesh',
-            image:
-                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-            price: 10,
-            quantity: 1,
-          ),
-          Cart(
-            name: 'Melvin Stanley',
-            category: 'Bangladesh',
-            image:
-                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-            price: 10,
-            quantity: 1,
-          ),
-          Cart(
-            name: 'Melvin Stanley',
-            category: 'Bangladesh',
-            image:
-                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-            price: 10,
-            quantity: 1,
-          ),
-          Cart(
-            name: 'Melvin Stanley',
-            category: 'Bangladesh',
-            image:
-                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-            price: 10,
-            quantity: 1,
-          ),
-          Cart(
-            name: 'Melvin Stanley',
-            category: 'Bangladesh',
-            image:
-                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-            price: 10,
-            quantity: 1,
-          ),
-        ],
-      );
+      cartItems.addAll(res);
 
       isLoading.value = false;
     } catch (e) {
       isLoading.value = false;
       log('Error => CartController:: fetchCartItems@ $e');
+    }
+  }
+
+  Future<void> addToCart(Cart cart) async {
+    try {
+      await repository.save(cart);
+
+      await fetchCartItems();
+    } catch (e) {
+      log('Error => CartController:: addToCart@ $e');
     }
   }
 

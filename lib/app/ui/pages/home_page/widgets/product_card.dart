@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_products_view/app/controllers/cart_controller.dart';
+import 'package:flutter_products_view/app/data/models/cart/cart.dart';
 import 'package:get/get.dart';
 
 import '../../../../const/app_colors.dart';
@@ -31,11 +33,29 @@ class ProductCard extends StatelessWidget {
               children: [
                 Text('${_product.price}', style: titleTs),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    final cartCtrl = Get.find<CartController>();
+
+                    final cart = Cart();
+                    cart.name = _product.title;
+                    cart.category = _product.category;
+                    cart.image = _product.image;
+                    cart.price = _product.price?.toInt();
+                    cart.quantity = 1;
+
+                    await cartCtrl.addToCart(cart);
+
+                    Get.snackbar(
+                      'Add to Cart',
+                      'Product added to cart successfully.',
+                      backgroundColor: AppColors.lightBg,
+                      snackPosition: SnackPosition.BOTTOM,
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: AppColors.primary,
                   ),
-                  child: const Text('Cart'),
+                  child: const Text('Add to Cart'),
                 )
               ],
             ),

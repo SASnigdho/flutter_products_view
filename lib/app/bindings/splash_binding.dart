@@ -8,7 +8,7 @@ class SplashBinding implements Bindings {
   void dependencies() {
     Get.put<SplashController>(SplashController());
 
-    Get.put(ApiClient(), permanent: true);
-    Get.put(DbService(), permanent: true);
+    Get.lazyPut(() => ApiClient());
+    Get.lazyPut(() => DbService());
   }
 }

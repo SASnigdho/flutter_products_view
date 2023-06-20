@@ -1,3 +1,4 @@
+import 'package:flutter_products_view/app/data/provider/cart_repository.dart';
 import 'package:flutter_products_view/app/data/provider/product_repository.dart';
 import 'package:get/get.dart';
 import '../controllers/cart_controller.dart';
@@ -12,6 +13,6 @@ class HomeBinding implements Bindings {
       () => ProductController(ProductRepository()),
     );
 
-    Get.lazyPut<CartController>(() => CartController());
+    Get.put<CartController>(CartController(CartRepository()), permanent: true);
   }
 }

@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../contracts/I_db_service.dart';
 import '../models/cart/cart.dart';
+import '../provider/interfaces/i_db_service.dart';
 
 class DbService implements IDbService {
   late Future<Isar> _db;

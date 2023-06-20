@@ -37,6 +37,7 @@ class CartTab extends GetView<CartController> {
                               controller.cartItems[i].quantity = quantity;
                             }
 
+                            controller.calculateSubTotal();
                             controller.cartItems.refresh();
                           },
                           onIncrease: () {
@@ -47,7 +48,7 @@ class CartTab extends GetView<CartController> {
                               controller.cartItems.toList()[i].quantity =
                                   quantity;
                             }
-
+                            controller.calculateSubTotal();
                             controller.cartItems.refresh();
                           },
                         );
@@ -67,11 +68,15 @@ class CartTab extends GetView<CartController> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    const CartSummary('Subtotal', '10.99'),
+                    Obx(
+                      () => CartSummary('Subtotal', '${controller.subTotal}'),
+                    ),
                     const Divider(),
-                    const CartSummary('Subtotal', '10.99'),
+                    const CartSummary('Discount', '0'),
                     const Divider(),
-                    const CartSummary('Subtotal', '10.99'),
+                    Obx(
+                      () => CartSummary('Bag Total', '${controller.subTotal}'),
+                    ),
                     const Divider(),
 
                     const SizedBox(height: 10),

@@ -8,10 +8,12 @@ import 'base_controller.dart';
 class CartController extends BaseController {
   final isLoading = false.obs;
   final cartItems = <Cart>[].obs;
+  final subTotal = 0.obs;
 
   @override
-  void onReady() {
-    fetchCartItems();
+  Future<void> onReady() async {
+    await fetchCartItems();
+    calculateSubTotal();
     super.onReady();
   }
 
@@ -87,5 +89,15 @@ class CartController extends BaseController {
       isLoading.value = false;
       log('Error => CartController:: fetchCartItems@ $e');
     }
+  }
+
+  void calculateSubTotal() {
+    int totalPrice = 0;
+
+    for (final cart in cartItems) {
+      totalPrice += (cart.quantity ?? 0) * cart.price!;
+    }
+
+    subTotal.value = totalPrice;
   }
 }

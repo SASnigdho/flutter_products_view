@@ -48,6 +48,16 @@ class CartController extends BaseController {
     }
   }
 
+  Future<void> deleteToCart(Cart cart) async {
+    try {
+      await repository.delete(cart);
+
+      await fetchCartItems();
+    } catch (e) {
+      log('Error => CartController:: deleteToCart@ $e');
+    }
+  }
+
   void calculateSubTotal() {
     int totalPrice = 0;
 

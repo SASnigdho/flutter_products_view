@@ -10,12 +10,13 @@ class CartItem extends StatelessWidget {
     super.key,
     required this.cart,
     required this.onIncrease,
-    required this.onDecrease,
+    required this.onDecrease, required this.onLongPress,
   });
 
   final Cart cart;
   final VoidCallback onIncrease;
   final VoidCallback onDecrease;
+  final VoidCallback onLongPress;
 
   @override
   Widget build(BuildContext context) {
@@ -23,51 +24,54 @@ class CartItem extends StatelessWidget {
     final labelSmallTs = Get.textTheme.labelSmall;
 
     return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Container(
-              height: 60,
-              width: 80,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: AppColors.lightBg,
-                image: DecorationImage(
-                  fit: BoxFit.contain,
-                  image: NetworkImage('${cart.image}'),
+      child: InkWell(
+        onLongPress: onLongPress,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                height: 60,
+                width: 80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: AppColors.lightBg,
+                  image: DecorationImage(
+                    fit: BoxFit.contain,
+                    image: NetworkImage('${cart.image}'),
+                  ),
+                ),
+                margin: const EdgeInsets.only(right: 16),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('${cart.name}', style: titleTs),
+                    Text('${cart.category}', style: labelSmallTs),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 100,
+                          child: Text('${cart.price}', style: titleTs),
+                        ),
+                        CartNumberPicker(
+                          quantity: cart.quantity ?? 1,
+                          onDecrease: onDecrease,
+                          onIncrease: onIncrease,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              margin: const EdgeInsets.only(right: 16),
-            ),
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('${cart.name}', style: titleTs),
-                  Text('${cart.category}', style: labelSmallTs),
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        width: 100,
-                        child: Text('${cart.price}', style: titleTs),
-                      ),
-                      CartNumberPicker(
-                        quantity: cart.quantity ?? 1,
-                        onDecrease: onDecrease,
-                        onIncrease: onIncrease,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

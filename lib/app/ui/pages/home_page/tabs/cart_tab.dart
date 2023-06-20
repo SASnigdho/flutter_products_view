@@ -53,6 +53,9 @@ class CartTab extends GetView<CartController> {
                             controller.cartItems.refresh();
                             controller.addToCart(controller.cartItems[i]);
                           },
+                          onLongPress: () async {
+                            await controller.deleteToCart(cart);
+                          },
                         );
                       },
                       separatorBuilder: (_, i) => const SizedBox(),

@@ -29,56 +29,56 @@ class CartController extends BaseController {
             image:
                 'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
             price: 10,
-            quantity: 2,
+            quantity: 1,
           ),
-          // Cart(
-          //   name: 'Melvin Stanley',
-          //   category: 'Bangladesh',
-          //   image:
-          //       'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-          //   price: 10,
-          //   quantity: 1,
-          // ),
-          // Cart(
-          //   name: 'Melvin Stanley',
-          //   category: 'Bangladesh',
-          //   image:
-          //       'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-          //   price: 10,
-          //   quantity: 1,
-          // ),
-          // Cart(
-          //   name: 'Melvin Stanley',
-          //   category: 'Bangladesh',
-          //   image:
-          //       'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-          //   price: 10,
-          //   quantity: 1,
-          // ),
-          // Cart(
-          //   name: 'Melvin Stanley',
-          //   category: 'Bangladesh',
-          //   image:
-          //       'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-          //   price: 10,
-          //   quantity: 1,
-          // ),
-          // Cart(
-          //   name: 'Melvin Stanley',
-          //   category: 'Bangladesh',
-          //   image:
-          //       'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-          //   price: 10,
-          //   quantity: 1,
-          // ),
-          // Cart(
-          //   name: 'Melvin Stanley',
-          //   category: 'Bangladesh',
-          //   image:
-          //       'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
-          //   price: 10,
-          //   quantity: 1,
-          // ),
+          Cart(
+            name: 'Melvin Stanley',
+            category: 'Bangladesh',
+            image:
+                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
+            price: 10,
+            quantity: 1,
+          ),
+          Cart(
+            name: 'Melvin Stanley',
+            category: 'Bangladesh',
+            image:
+                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
+            price: 10,
+            quantity: 1,
+          ),
+          Cart(
+            name: 'Melvin Stanley',
+            category: 'Bangladesh',
+            image:
+                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
+            price: 10,
+            quantity: 1,
+          ),
+          Cart(
+            name: 'Melvin Stanley',
+            category: 'Bangladesh',
+            image:
+                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
+            price: 10,
+            quantity: 1,
+          ),
+          Cart(
+            name: 'Melvin Stanley',
+            category: 'Bangladesh',
+            image:
+                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
+            price: 10,
+            quantity: 1,
+          ),
+          Cart(
+            name: 'Melvin Stanley',
+            category: 'Bangladesh',
+            image:
+                'https://unsplash.com/photos/2cFZ_FB08UM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHx8fDE2ODcxODg4Nzd8MA&force=true&w=340',
+            price: 10,
+            quantity: 1,
+          ),
         ],
       );
 

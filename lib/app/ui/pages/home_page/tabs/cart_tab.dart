@@ -32,19 +32,21 @@ class CartTab extends GetView<CartController> {
                           onDecrease: () {
                             int quantity = cart.quantity ?? 1;
 
-                            if (quantity < 1) {}
-                            quantity--;
-                            controller.cartItems[i].quantity = quantity;
+                            if (quantity != 1) {
+                              quantity--;
+                              controller.cartItems[i].quantity = quantity;
+                            }
 
                             controller.cartItems.refresh();
                           },
                           onIncrease: () {
                             int quantity = cart.quantity ?? 1;
 
-                            if (quantity < 10) {}
-                            quantity++;
-                            controller.cartItems.toList()[i].quantity =
-                                quantity;
+                            if (quantity != 10) {
+                              quantity++;
+                              controller.cartItems.toList()[i].quantity =
+                                  quantity;
+                            }
 
                             controller.cartItems.refresh();
                           },

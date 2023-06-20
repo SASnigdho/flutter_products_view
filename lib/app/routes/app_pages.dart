@@ -34,7 +34,7 @@ class AppPages {
     GetPage(
       name: RouteNames.productShow,
       binding: ProductShowBinding(),
-      page: () => const ProductShowPage(),
+      page: () => ProductShowPage(),
       transition: _defaultTransition,
     ),
   ];

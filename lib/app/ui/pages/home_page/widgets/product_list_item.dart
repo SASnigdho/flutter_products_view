@@ -16,7 +16,7 @@ class ProductListItem extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
         onTap: () async {
-          await Get.toNamed(RouteNames.productShow);
+          await Get.toNamed(RouteNames.productShow, arguments: product);
         },
         child: Padding(
           padding: const EdgeInsets.all(8.0),

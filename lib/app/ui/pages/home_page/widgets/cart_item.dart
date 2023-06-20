@@ -25,6 +25,7 @@ class CartItem extends StatelessWidget {
 
     return Card(
       child: InkWell(
+        borderRadius: BorderRadius.circular(10),
         onLongPress: onLongPress,
         child: Padding(
           padding: const EdgeInsets.all(16),

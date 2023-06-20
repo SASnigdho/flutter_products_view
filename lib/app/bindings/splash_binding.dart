@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import '../controllers/splash_controller.dart';
 import '../data/helpers/api_client.dart';
+import '../data/services/db_service.dart';
 
 class SplashBinding implements Bindings {
   @override
@@ -8,5 +9,6 @@ class SplashBinding implements Bindings {
     Get.put<SplashController>(SplashController());
 
     Get.put(ApiClient(), permanent: true);
+    Get.put(DbService(), permanent: true);
   }
 }

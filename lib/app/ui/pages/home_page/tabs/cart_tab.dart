@@ -22,14 +22,37 @@ class CartTab extends GetView<CartController> {
                       color: AppColors.primary,
                     ),
                   )
-                : ListView.separated(
-                    itemBuilder: (context, i) {
-                      final cart = controller.cartItems[i];
+                : Obx(
+                    () => ListView.separated(
+                      itemBuilder: (context, i) {
+                        final cart = controller.cartItems[i];
 
-                      return CartItem(cart);
-                    },
-                    separatorBuilder: (_, i) => const SizedBox(),
-                    itemCount: controller.cartItems.length,
+                        return CartItem(
+                          cart: cart,
+                          onDecrease: () {
+                            int quantity = cart.quantity ?? 1;
+
+                            if (quantity < 1) {}
+                            quantity--;
+                            controller.cartItems[i].quantity = quantity;
+
+                            controller.cartItems.refresh();
+                          },
+                          onIncrease: () {
+                            int quantity = cart.quantity ?? 1;
+
+                            if (quantity < 10) {}
+                            quantity++;
+                            controller.cartItems.toList()[i].quantity =
+                                quantity;
+
+                            controller.cartItems.refresh();
+                          },
+                        );
+                      },
+                      separatorBuilder: (_, i) => const SizedBox(),
+                      itemCount: controller.cartItems.length,
+                    ),
                   ),
           ),
         ),

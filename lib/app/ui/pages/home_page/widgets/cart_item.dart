@@ -3,11 +3,19 @@ import 'package:get/get.dart';
 
 import '../../../../const/app_colors.dart';
 import '../../../../data/models/cart/cart.dart';
+import 'cart_number_picker.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem(this.cart, {super.key});
+  const CartItem({
+    super.key,
+    required this.cart,
+    required this.onIncrease,
+    required this.onDecrease,
+  });
 
   final Cart cart;
+  final VoidCallback onIncrease;
+  final VoidCallback onDecrease;
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +57,11 @@ class CartItem extends StatelessWidget {
                         width: 100,
                         child: Text('${cart.price}', style: titleTs),
                       ),
-
-                      // TODO: Add number picker.
-                      Container(
-                        height: 40,
-                        width: 100,
-                        color: AppColors.primary,
-                      )
+                      CartNumberPicker(
+                        quantity: cart.quantity ?? 1,
+                        onDecrease: onDecrease,
+                        onIncrease: onIncrease,
+                      ),
                     ],
                   ),
                 ],

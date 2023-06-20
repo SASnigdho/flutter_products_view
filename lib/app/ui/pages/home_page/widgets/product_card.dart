@@ -37,6 +37,7 @@ class ProductCard extends StatelessWidget {
                     final cartCtrl = Get.find<CartController>();
 
                     final cart = Cart();
+                    cart.id = _product.id;
                     cart.name = _product.title;
                     cart.category = _product.category;
                     cart.image = _product.image;

@@ -6,7 +6,7 @@ part 'cart.g.dart';
 @JsonSerializable()
 @collection
 class Cart {
-  Id? id = Isar.autoIncrement;
+  Id? id;
   String? name;
   int? price;
   String? category;

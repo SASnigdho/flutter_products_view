@@ -23,6 +23,7 @@ class CartController extends BaseController {
   }
 
   Future<void> fetchCartItems() async {
+    cartItems.clear();
     isLoading.value = true;
 
     try {

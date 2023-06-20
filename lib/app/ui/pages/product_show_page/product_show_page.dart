@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../../const/app_colors.dart';
 import '../../../controllers/product_show_controller.dart';
 import '../home_page/widgets/product_card.dart';
-import '../home_page/widgets/product_category.dart';
+import '../home_page/widgets/category.dart';
 
 // ignore: must_be_immutable
 class ProductShowPage extends GetView<ProductShowController> {
@@ -48,8 +48,8 @@ class ProductShowPage extends GetView<ProductShowController> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.max,
             children: [
-              ProductCategory(category: '${product.category}'),
-              ProductCategory(category: '${product.category}'),
+              Category(category: '${product.category}'),
+              Category(category: '${product.category}'),
             ],
           ),
           const SizedBox(height: 30),

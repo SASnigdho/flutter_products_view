@@ -18,7 +18,6 @@ class CartController extends BaseController {
   @override
   Future<void> onReady() async {
     await fetchCartItems();
-    calculateSubTotal();
     super.onReady();
   }
 
@@ -30,6 +29,7 @@ class CartController extends BaseController {
       final res = await repository.getCarts();
 
       cartItems.addAll(res);
+      calculateSubTotal();
 
       isLoading.value = false;
     } catch (e) {

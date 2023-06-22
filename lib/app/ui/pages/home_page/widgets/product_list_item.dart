@@ -44,7 +44,18 @@ class ProductListItem extends StatelessWidget {
                       style: Get.textTheme.titleLarge,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    Text('${product.price}', style: Get.textTheme.labelSmall),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('${product.price}',
+                            style: Get.textTheme.labelSmall),
+                        Text(
+                          '${product.rating?.rate}',
+                          style: Get.textTheme.labelSmall,
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

@@ -4,6 +4,16 @@ A new Flutter project.
 
 ## Getting Started
 
+Pages: Products Tab, Product show page and Cart Tab.
+1. Load products form server using faceStore api.
+2. User can search for products.
+3. User can sort product based on ratting.
+4. User can see product details.
+5. User can delete product from cat page by long press in list item.
+6. Calculate total cost of cart.
+
+
+
 This project is a starting point for a Flutter application.
 
 - **Task 3**

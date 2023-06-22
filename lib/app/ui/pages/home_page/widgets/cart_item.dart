@@ -10,7 +10,8 @@ class CartItem extends StatelessWidget {
     super.key,
     required this.cart,
     required this.onIncrease,
-    required this.onDecrease, required this.onLongPress,
+    required this.onDecrease,
+    required this.onLongPress,
   });
 
   final Cart cart;
@@ -50,8 +51,12 @@ class CartItem extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${cart.name}', style: titleTs),
-                    Text('${cart.category}', style: labelSmallTs),
+                    Text(
+                      '${cart.name}',
+                      style: titleTs,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Text(cart.category!.toUpperCase(), style: labelSmallTs),
                     const SizedBox(height: 10),
                     Row(
                       mainAxisSize: MainAxisSize.max,

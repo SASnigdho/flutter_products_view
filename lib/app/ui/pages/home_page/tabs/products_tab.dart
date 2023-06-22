@@ -33,7 +33,7 @@ class ProductsTab extends GetView<ProductController> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: controller.onSort,
                         icon: const Icon(Icons.sort),
                       ),
                     ],

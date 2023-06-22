@@ -14,6 +14,8 @@ class ProductController extends BaseController {
   final products = <Product>[].obs;
   final backUpProducts = <Product>[].obs;
 
+  final isSortByRatting = false.obs;
+
   @override
   Future<void> onReady() async {
     await fetchProducts();
@@ -59,6 +61,22 @@ class ProductController extends BaseController {
     } catch (e) {
       isLoading.value = false;
       log('HomeController:: onSearch@ $e');
+    }
+  }
+
+  void onSort() {
+    try {
+      if (isSortByRatting.isFalse) {
+        products.sort((a, b) => a.rating!.rate!.compareTo(b.rating!.rate!));
+      } else {
+        products.clear();
+        products.addAll(backUpProducts);
+      }
+
+      isSortByRatting.toggle();
+      products.refresh();
+    } catch (e) {
+      log('HomeController:: onSort@ $e');
     }
   }
 }
